@@ -1,0 +1,23 @@
+TradeWorld Backend
+
+The TradeWorld Backend handles all server-side functionality for the TradeWorld project, including database interactions, API endpoints, and core business logic. It serves as the backbone for the frontend, ensuring secure and efficient communication with the application’s data layer.
+
+Directory Structure
+
+Models/ – Defines data structures and database schemas used throughout the application.
+
+Routes/ – Maps API endpoints to their corresponding controller functions.
+
+Config/ – Stores configuration files, including environment variables and database settings.
+
+Middleware/ – Contains middleware for request processing, such as authentication, logging, and error handling.
+
+Purpose
+
+The backend is responsible for:
+
+- Providing a secure and efficient API for the frontend to interact with.
+- Managing data storage, retrieval, and validation using a database.
+- Implementing core business logic and enforcing application rules.
+- Ensuring the server-side code is scalable, maintainable, and easy to extend.
+
