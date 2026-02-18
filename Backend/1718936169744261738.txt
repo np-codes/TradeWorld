@@ -1,0 +1,58 @@
+PROJECT NOMENCLATURE DOCUMENT
+
+1. DATABASE NAMING CONVENTIONS
+
+TABLE NAMING: - All table names must be in UPPERCASE. - Words must be
+separated using underscore (_).
+
+Examples: USERS PENDING_USERS OTP_VERIFICATION
+
+COLUMN NAMING: - Use snake_case format. - First word must be
+lowercase. - Second word: first letter uppercase, rest lowercase. -
+Words separated using underscore (_).
+
+Pattern Examples: first_Name last_Name birth_Date user_Name phone_Num
+
+Rules: - First word: all lowercase - After underscore: First letter
+uppercase - Primary Key format: _ID - Foreign Key format: _ID
+
+Examples: user_ID first_Name birth_Date phone_Num created_at (system
+fields can remain fully lowercase)
+
+2. BACKEND (NODE.JS API) NAMING CONVENTIONS
+
+VARIABLE NAMING: - Use camelCase. - No underscores. - Must match
+database column meaning.
+
+Conversion Rule:
+
+Database Column -> API Variable first_Name -> firstName last_Name ->
+lastName birth_Date -> birthDate user_Name -> userName phone_Num ->
+phoneNum email_Id -> emailId temp_User_Id -> tempUserId
+
+3. API STRUCTURE STANDARD
+
+API Requirements: - Must be inside try-catch block. - Success response
+format:
+
+res.status(201).json({ message: “User registered successfully” });
+
+Catch Block Standard:
+
+catch (error) { console.error(“Error during verification:”, error);
+res.status().json({ error: “Internal server error” }); }
+
+4. MODEL FOLDER TABLE CREATION STANDARD
+
+-   Use CREATE TABLE IF NOT EXISTS.
+-   SQL must be written inside template literal.
+-   Must be wrapped inside async function.
+-   Proper error handling required.
+
+SUMMARY
+
+Layer Naming Style
+
+Database Tables UPPERCASE Database Columns snake_case (second word
+capitalized) API Variables camelCase API Structure try-catch mandatory
+Success Response 201 status Error Response Standardized catch block
