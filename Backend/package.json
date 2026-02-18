@@ -13,8 +13,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "libphonenumber-js": "^1.12.36",
     "mssql": "^12.2.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.16.2"

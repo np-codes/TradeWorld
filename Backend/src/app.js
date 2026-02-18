@@ -1,17 +1,17 @@
 const express = require("express");
 const mysql = require("mysql");
-const connection = require("./config");
+const db = require("./config");
 const app = express();
 app.use(express.json());
 
 // Importing APIS files from routes folder
 const testRoutes = require("./routes/test_apis");
+const userRoutes = require("./routes/user_apis");
 
 // Using the imported routes
-app.use("/", testRoutes);
+app.use("/", testRoutes, userRoutes);
 
-
-connection.connect((err) => {
+db.connect((err) => {
     if (err) {
         console.error('Database connection failed: ' + err.message);
         process.exit(1);
