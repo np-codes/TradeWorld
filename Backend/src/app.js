@@ -5,11 +5,11 @@ const app = express();
 app.use(express.json());
 
 // Importing APIS files from routes folder
-const testRoutes = require("./routes/test_apis");
 const userRoutes = require("./routes/user_apis");
+const otpRoutes = require("./routes/otp_verification_api");
 
 // Using the imported routes
-app.use("/", testRoutes, userRoutes);
+app.use("/", userRoutes, otpRoutes);
 
 db.connect((err) => {
     if (err) {
