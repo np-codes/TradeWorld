@@ -6,14 +6,14 @@ const createPendingUsersTable = async () => {
     try{
         const sql = `
             CREATE TABLE IF NOT EXISTS PENDING_USERS (
-                temp_User_ID INT AUTO_INCREMENT PRIMARY KEY,
+                temp_User_Id INT AUTO_INCREMENT PRIMARY KEY,
                 first_Name VARCHAR(100) NOT NULL,
                 last_Name VARCHAR(100) NOT NULL,
                 birth_Date DATE NOT NULL,
                 user_Name VARCHAR(100) UNIQUE NOT NULL,
                 email_Id VARCHAR(100) UNIQUE NOT NULL,
                 phone_Num VARCHAR(20) UNIQUE NOT NULL,
-                password VARCHAR(255) NOT NULL,
+                password_Hash VARCHAR(255) NOT NULL,
                 email_Verified BOOLEAN DEFAULT FALSE,
                 phone_Verified BOOLEAN DEFAULT FALSE,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -43,14 +43,14 @@ const createUserTable = async () => {
     try{
         const sql = `
             CREATE TABLE IF NOT EXISTS USERS (
-                user_ID INT AUTO_INCREMENT PRIMARY KEY,
+                user_Id INT AUTO_INCREMENT PRIMARY KEY,
                 first_Name VARCHAR(100) NOT NULL,
                 last_Name VARCHAR(100) NOT NULL,
                 birth_Date DATE NOT NULL,
                 user_Name VARCHAR(100) UNIQUE NOT NULL,
                 email_Id VARCHAR(100) UNIQUE NOT NULL,
                 phone_Num VARCHAR(20) UNIQUE NOT NULL,
-                password VARCHAR(255) NOT NULL,
+                password_Hash VARCHAR(255) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `;

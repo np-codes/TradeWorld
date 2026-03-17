@@ -1,6 +1,5 @@
-const { droptestTable, createTestTable } = require("./test_schema");
 const { createUserTable, dropUserTable, createPendingUsersTable, dropPendingUsersTable } = require("./user_table");
-const { createOTPVerificationTable, dropOTPVerificationTable } = require("./otp_verification_table");
+const { createOTPTable, dropOTPTable } = require("./otp_table");
 
 const db = require("../config");
 
@@ -14,9 +13,7 @@ const run = async () => {
     const action = process.argv[2];
 
     try {
-        // Usage:node src/models/control_models.js drop:test
-        if (action.includes("create:test")) await createTestTable();
-        if (action.includes("drop:test")) await droptestTable();
+        // Usage:node src/models/control_models.js drop:user
         if (action.includes("create:user")) {
             await createUserTable();
             await createPendingUsersTable();
@@ -25,11 +22,12 @@ const run = async () => {
             await dropUserTable();
             await dropPendingUsersTable();
         }
-        if (action.includes("create:otp")) await createOTPVerificationTable();
-        if (action.includes("drop:otp")) await dropOTPVerificationTable();
+        if (action.includes("create:otp")) await createOTPTable();
+        if (action.includes("drop:otp")) await dropOTPTable();
 
-        console.error("Error in control_models:", err.message);
-
+        
+    } catch (err) {
+        console.error("Something went wrong:", err.message);
     } finally {
         db.end(err => {
             if (err) {
